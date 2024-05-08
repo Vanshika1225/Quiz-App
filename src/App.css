@@ -7,32 +7,78 @@
   pointer-events: none;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+* {
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+body {
+  background-color: #4b7c7a;
+}
+
+.image img {
+  margin-top: 5vh;
+}
+
+.input-field form{
   display: flex;
   flex-direction: column;
+  margin-top: 5vh;
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+}
+
+.input-field label {
   color: white;
+  padding: 20px 0;
+  font-weight: bolder;
+  text-align: start;
+  align-items: start !important;
 }
 
-.App-link {
-  color: #61dafb;
+.input-field input {
+  padding: 10px;
+  border-radius: 162px;
+  width: 80vw;
+  max-width: 500px;
+  background-color: transparent;
+  border: 1px solid white;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+.input-field button {
+  padding: 10px;
+  border-radius: 43px;
+  width: 80vw;
+  max-width: 540px;
+  background-color: rgb(231, 184, 54);
+  color: white;
+  font-weight: bold;
+  margin-top: 5vh;
+}
+
+.error-message{
+  color: red;
+  padding: 0;
+}
+
+@media screen and (max-width: 2560px) {
+  .image img {
+    margin-top: 30vh;
   }
-  to {
-    transform: rotate(360deg);
+}
+
+@media screen and (max-width: 1440px) {
+  .image img {
+    margin-top: 20vh;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .input-field input {
+    width: 90vw;
+    max-width: 300px;
+  }
+
+  .input-field button {
+    width: 90vw;
+    max-width: 320px;
   }
 }
