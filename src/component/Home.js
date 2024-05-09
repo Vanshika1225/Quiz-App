@@ -17,7 +17,7 @@ const Home = () => {
   };
 
   return (
-    <div>
+    <div className="home">
       <div className="image">
         <img src={frontimg} alt="Front Image" />
       </div>

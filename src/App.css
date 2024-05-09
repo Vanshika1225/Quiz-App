@@ -9,17 +9,27 @@
 
 * {
   font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-body {
+.home {
   background-color: #4b7c7a;
+  height: 100vh;
+}
+.Game {
+  /* background-color: rgb(255, 249, 249); */
+  /* background-color: rgb(236, 233, 227); */
+  background-color: #e5ecec;
+  height: 130vh;
 }
 
 .image img {
   margin-top: 5vh;
 }
 
-.input-field form{
+.input-field form {
   display: flex;
   flex-direction: column;
   margin-top: 5vh;
@@ -54,17 +64,97 @@ body {
   margin-top: 5vh;
 }
 
-.error-message{
+.error-message {
   color: red;
   padding: 0;
 }
 
+.prev-button p {
+  padding: 5px 30px;
+  text-align: start;
+}
+
+.questions {
+  background-color: rgb(243, 243, 243);
+  width: 300px;
+  height: 250px;
+  border-radius: 20px;
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  align-items: center;
+  margin: 40px auto;
+}
+
+.options {
+  display: flex;
+  flex-direction: column;
+}
+
+.opeion-inside {
+  display: flex;
+  text-align: center;
+  margin: 0px auto;
+  background-color: white;
+  padding: 10px;
+  margin: 10px auto;
+  border-radius: 40px;
+  width: 382px;
+  box-shadow: 0 3px 15px rgba(253,253,254,0.4);
+}
+
+.opeion-inside input {
+  text-align: center;
+  margin: 10px;
+  padding: 10px;
+  border-radius: 20px;
+  border: 1px solid white;
+  width: 30px;
+}
+
+.opeion-inside p {
+  text-align: center;
+  margin: 10px;
+}
+
+.prev-button span{
+  padding: -20px;
+}
+
+.next-btn button{
+  width: 380px;
+  padding: 12px 30px;
+  border-radius: 30px;
+  border: none;
+  background-color: rgb(188, 207, 197);
+  position: relative;
+  bottom: -40px;
+  cursor: pointer;
+}
+ 
 @media screen and (max-width: 2560px) {
   .image img {
     margin-top: 30vh;
   }
 }
 
+@media screen and (max-width: 1440px) {
+  .image img {
+    margin-top: 20vh;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .input-field input {
+    width: 90vw;
+    max-width: 300px;
+  }
+
+  .input-field button {
+    width: 90vw;
+    max-width: 320px;
+  }
+}
 @media screen and (max-width: 1440px) {
   .image img {
     margin-top: 20vh;

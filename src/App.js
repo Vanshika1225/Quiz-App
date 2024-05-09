@@ -9,6 +9,7 @@ function App() {
         <Routes>
           <Route exact path="/" element={<Home />} />
           <Route exact path="/Game" element={<Game />} />
+          <Route exact path="/leaderboard" element={<Game />} />
         </Routes>
       </BrowserRouter>
     </div>
