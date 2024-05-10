@@ -132,12 +132,6 @@
   cursor: pointer;
 }
 
-
-.leaderboard{
-  background-image: linear-gradient(to right, rgb(23, 167, 124) , rgb(177, 231, 222));
-  height: 641px;
-}
-
 @media screen and (max-width: 2560px) {
   .image img {
     margin-top: 30vh;

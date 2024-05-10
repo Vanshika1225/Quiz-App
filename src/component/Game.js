@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
+import Leaderboard from "./leaderboard";
 const Game = () => {
   const qBank = [
     {
@@ -37,12 +38,15 @@ const Game = () => {
 
   const location = useLocation();
   const username = location.state ? location.state.username : null;
-  
+
   const [currentIndex, setCurrentIndex] = useState(0);
 
   const [selectedOption, setSelectedOption] = useState(null);
 
   const [score, setScore] = useState(0);
+
+  const [changeButtonnme, setChangeButtonName] = useState(false);
+
   const handleNext = () => {
     if (selectedOption !== null) {
       if (selectedOption === qBank[currentIndex].answer) {
@@ -50,6 +54,9 @@ const Game = () => {
       }
       setCurrentIndex((prevIndex) => prevIndex + 1);
       setSelectedOption(null);
+      if (currentIndex == qBank.length - 1) {
+        setChangeButtonName(true);
+      }
     }
   };
 
@@ -66,28 +73,7 @@ const Game = () => {
   };
 
   if (currentIndex === qBank.length) {
-    const playerInfo = { name: username, score: score };
-    const players = JSON.parse(localStorage.getItem("players")) || [];
-    players.push(playerInfo);
-    localStorage.setItem("players", JSON.stringify(players));
-
-    return (
-      <div className="leaderboard">
-        <div className="leaderboard-content">
-          <h1>Game Over</h1>
-          <h2>Your Score is {score}</h2>
-          <button onClick={() => navigate("/")}>Play Again</button>
-          <h2>Leaderboard:</h2>
-          <ul>
-            {players.map((player, index) => (
-              <li key={index}>
-                {player.name}: {player.score}
-              </li>
-            ))}
-          </ul>
-        </div>
-      </div>
-    );
+    return <Leaderboard username={username} score={score} />;
   }
 
   return (
@@ -116,7 +102,11 @@ const Game = () => {
       </div>
 
       <div className="next-btn">
-        <button onClick={handleNext}>Next</button>
+        <button onClick={handleNext}>
+          {currentIndex === qBank.length - 1 && !changeButtonnme
+            ? "Submit"
+            : "next"}
+        </button>
       </div>
     </div>
   );
