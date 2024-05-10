@@ -1,6 +1,5 @@
 import React, { useState } from "react";
-import { useNavigate } from "react-router-dom";
-import Leaderboard from "./leaderboard";
+import { useLocation, useNavigate } from "react-router-dom";
 const Game = () => {
   const qBank = [
     {
@@ -34,25 +33,26 @@ const Game = () => {
       answer: "Lucknow",
     },
   ];
-
   const navigate = useNavigate();
 
+  const location = useLocation();
+  const username = location.state ? location.state.username : null;
+  
   const [currentIndex, setCurrentIndex] = useState(0);
 
   const [selectedOption, setSelectedOption] = useState(null);
- 
-  const [score,setScore] = useState(0);
+
+  const [score, setScore] = useState(0);
   const handleNext = () => {
     if (selectedOption !== null) {
-      if(selectedOption === qBank[currentIndex].answer){
-        setScore((prevScore)=>prevScore + 1)
+      if (selectedOption === qBank[currentIndex].answer) {
+        setScore((prevScore) => prevScore + 1);
       }
       setCurrentIndex((prevIndex) => prevIndex + 1);
       setSelectedOption(null);
     }
   };
 
- 
   const prevButton = () => {
     if (currentIndex >= 1) {
       setCurrentIndex((prevIndex) => prevIndex - 1);
@@ -65,8 +65,29 @@ const Game = () => {
     setSelectedOption(option);
   };
 
-  if(currentIndex === qBank.length){
-    return <Leaderboard score={score}/>
+  if (currentIndex === qBank.length) {
+    const playerInfo = { name: username, score: score };
+    const players = JSON.parse(localStorage.getItem("players")) || [];
+    players.push(playerInfo);
+    localStorage.setItem("players", JSON.stringify(players));
+
+    return (
+      <div className="leaderboard">
+        <div className="leaderboard-content">
+          <h1>Game Over</h1>
+          <h2>Your Score is {score}</h2>
+          <button onClick={() => navigate("/")}>Play Again</button>
+          <h2>Leaderboard:</h2>
+          <ul>
+            {players.map((player, index) => (
+              <li key={index}>
+                {player.name}: {player.score}
+              </li>
+            ))}
+          </ul>
+        </div>
+      </div>
+    );
   }
 
   return (

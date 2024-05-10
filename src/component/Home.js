@@ -13,7 +13,7 @@ const Home = () => {
 
   const onSubmit = (data) => {
     console.log(data);
-    navigate("/Game");
+    navigate("/Game",{state:{username:data.username}});
   };
 
   return (
