@@ -83,7 +83,7 @@
   justify-content: center;
   text-align: center;
   align-items: center;
-  margin: 40px auto;
+  margin: 60px auto;
 }
 
 .options {
@@ -130,6 +130,24 @@
   position: relative;
   bottom: -40px;
   cursor: pointer;
+}
+
+.timer{
+  border: 8px solid #4b7c7a;
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  position: absolute;
+  text-align: center;
+  left: 638px;
+  top: 69px;
+}
+
+.timer h3{
+  font-size: 15px;
+  color: #4b7c7a;
+  font-weight: bold;
+  margin-top: 25px;
 }
 
 @media screen and (max-width: 2560px) {

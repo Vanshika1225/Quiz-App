@@ -1,6 +1,7 @@
-import React, { useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
-import Leaderboard from "./leaderboard";
+import Leaderboard from "./Leaderboard";
+import "../App.css";
 const Game = () => {
   const qBank = [
     {
@@ -48,6 +49,7 @@ const Game = () => {
   const [changeButtonnme, setChangeButtonName] = useState(false);
 
   const handleNext = () => {
+    console.warn("checking next");
     if (selectedOption !== null) {
       if (selectedOption === qBank[currentIndex].answer) {
         setScore((prevScore) => prevScore + 1);
@@ -58,6 +60,9 @@ const Game = () => {
         setChangeButtonName(true);
       }
     }
+    const playerInfo = { name: username, score: score }
+    localStorage.setItem("players", JSON.stringify(playerInfo));
+
   };
 
   const prevButton = () => {
@@ -67,13 +72,12 @@ const Game = () => {
       navigate("/");
     }
   };
-
   const handleOptionChange = (option) => {
     setSelectedOption(option);
   };
 
   if (currentIndex === qBank.length) {
-    return <Leaderboard username={username} score={score} />;
+    return <Leaderboard  />;
   }
 
   return (
