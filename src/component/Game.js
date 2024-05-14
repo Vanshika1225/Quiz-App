@@ -60,9 +60,23 @@ const Game = () => {
         setChangeButtonName(true);
       }
     }
-    const playerInfo = { name: username, score: score }
-    localStorage.setItem("players", JSON.stringify(playerInfo));
+    if (currentIndex === 4) {
+      // console.warn(localStorage.getItem("players"));
+      const playerInfo = [{ name: username, score: score }];
 
+      if (localStorage.getItem("players") !== null) {
+        localStorage.setItem(
+          "players",
+          JSON.stringify([
+            ...JSON.parse(localStorage.getItem("players")),
+            ...playerInfo,
+          ])
+        );
+      } else {
+        localStorage.setItem("players", JSON.stringify(playerInfo));
+      }
+    }
+    console.warn(localStorage.getItem("players"));
   };
 
   const prevButton = () => {
@@ -72,12 +86,13 @@ const Game = () => {
       navigate("/");
     }
   };
+
   const handleOptionChange = (option) => {
     setSelectedOption(option);
   };
 
   if (currentIndex === qBank.length) {
-    return <Leaderboard  />;
+    return <Leaderboard />;
   }
 
   return (

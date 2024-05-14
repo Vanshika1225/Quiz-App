@@ -7,16 +7,12 @@ body {
 }
 
 .leaderboard {
-  /* background-image: linear-gradient(to right, rgb(23, 167, 124) , rgb(177, 231, 222)); */
   height: 641px;
 }
 
-.leaderboard h3 {
-    /* margin-top: 50px; */
-}
 
 .leaderboard-content {
-    margin: 50px auto;
+    margin: 200px auto;
     border: 2px solid black;
     width: 350px;
     padding: 20px;
