@@ -34,6 +34,80 @@ const Game = () => {
       options: ["GB Nagar", "Lucknow", "Prayagraj", "Agra"],
       answer: "Lucknow",
     },
+    {
+      id: 6,
+      question: "What is the chemical symbol for gold?",
+      options: ["Au", "Ag", "Fe", "Cu"],
+      answer: "Au",
+    },
+    {
+      id: 7,
+      question: "Who wrote the play 'Romeo and Juliet'?",
+      options: [
+        "William Shakespeare",
+        "Jane Austen",
+        "Charles Dickens",
+        "Mark Twain",
+      ],
+      answer: "William Shakespeare",
+    },
+    {
+      id: 8,
+      question: "What is the largest ocean on Earth?",
+      options: [
+        "Atlantic Ocean",
+        "Arctic Ocean",
+        "Indian Ocean",
+        "Pacific Ocean",
+      ],
+      answer: "Pacific Ocean",
+    },
+    {
+      id: 9,
+      question: "Which planet is known as the 'Red Planet'?",
+      options: ["Jupiter", "Mars", "Venus", "Saturn"],
+      answer: "Mars",
+    },
+    {
+      id: 10,
+      question: "Who painted the famous artwork 'The Starry Night'?",
+      options: [
+        "Vincent van Gogh",
+        "Pablo Picasso",
+        "Leonardo da Vinci",
+        "Claude Monet",
+      ],
+      answer: "Vincent van Gogh",
+    },
+    {
+      id: 11,
+      question: "What is the capital of South Africa?",
+      options: ["Cape Town", "Pretoria", "Johannesburg", "Durban"],
+      answer: "Pretoria",
+    },
+    {
+      id: 12,
+      question: "What is the largest mammal in the world?",
+      options: ["African Elephant", "Blue Whale", "Giraffe", "Polar Bear"],
+      answer: "Blue Whale",
+    },
+    {
+      id: 13,
+      question: "Which scientist formulated the theory of general relativity?",
+      options: [
+        "Isaac Newton",
+        "Albert Einstein",
+        "Stephen Hawking",
+        "Niels Bohr",
+      ],
+      answer: "Albert Einstein",
+    },
+    {
+      id: 14,
+      question: "In what year did the Berlin Wall fall?",
+      options: ["1989", "1991", "1987", "1993"],
+      answer: "1989",
+    },
   ];
   const navigate = useNavigate();
 
@@ -61,7 +135,6 @@ const Game = () => {
       }
     }
     if (currentIndex === 4) {
-      // console.warn(localStorage.getItem("players"));
       const playerInfo = [{ name: username, score: score }];
 
       if (localStorage.getItem("players") !== null) {
@@ -99,7 +172,7 @@ const Game = () => {
     <div className="Game">
       <div className="prev-button">
         <p onClick={prevButton}>&lt; previous</p>
-        <span>{qBank[currentIndex].id} /5</span>
+        <span>{qBank[currentIndex].id}/14</span>
       </div>
       <div className="questions">
         <p>{qBank[currentIndex].question}</p>
